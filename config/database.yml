@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: postgres://gelatomio:123456@localhost:5432/gelatomio_development
+
+development:
+  <<: *default
+  database: gelatomio_development
+
+test:
+  <<: *default
+  database: gelatomio_development
+
+production:
+  <<: *default
+  database: gelatomio_app_production
+  username: gelatomio_app
+  password: <%= ENV["GELATOMIO_APP_DATABASE_PASSWORD"] %>
