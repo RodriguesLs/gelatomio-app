@@ -1,0 +1,30 @@
+.form-new {
+    width: 25%;
+    margin: 0 auto;
+    padding: 2em;
+    border: 1px solid #26a69a;
+    border-radius: 5px;
+}
+
+.actions {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.actions-index {
+    display: flex;
+    width: 60%;
+    margin: 2em auto;
+    justify-content: flex-end;
+}
+
+.header {
+    text-align: center;
+}
+
+.body-table {
+    width: 60%;
+    margin: 0 auto;
+}

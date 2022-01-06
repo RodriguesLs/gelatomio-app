@@ -1,23 +1,17 @@
 class OperationsController < ApplicationController
   before_action :set_operation, only: %i[ show edit update destroy ]
 
-  # GET /operations or /operations.json
   def index
     @operations = Operation.all
   end
 
-  # GET /operations/1 or /operations/1.json
-  def show
-  end
+  def show; end
 
-  # GET /operations/new
   def new
     @operation = Operation.new
   end
 
-  # GET /operations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /operations or /operations.json
   def create
@@ -25,7 +19,7 @@ class OperationsController < ApplicationController
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
+        format.html { redirect_to root_path, notice: "Operation was successfully created." }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }

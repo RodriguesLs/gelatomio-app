@@ -1,32 +1,45 @@
-<%= form_with(model: operation) do |form| %>
-  <% if operation.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
+<div class='form-new'>
+  <%= form_with(model: operation) do |form| %>
+    <% if operation.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
 
-      <ul>
-        <% operation.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% operation.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <label>
+        <%= form.check_box :entry %>
+        <span> <%= form.label :entry %></span>
+      </label>
+    </div>
+
+    <div>
+      <%= form.label :payment_method %>
+      <%= form.select :payment_method, options_for_select([["Cartão", "Cartão"], ["Pix", "Pix"], ["Dinheiro", "Dinheiro"]]) %>
+    </div>
+
+    <div class="input-field col s6">
+      <%= form.label :value %>
+      <%= form.text_field :value, pattern: '[a-Z]' %>
+    </div>
+
+    <div class='actions'>
+      <%= form.submit I18n.t('operations.new'), class: 'btn btn-success' %>
+      <%= link_to I18n.t('operations.back'), operations_path, class: 'btn btn-danger' %>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :entry, style: "display: block" %>
-    <%= form.check_box :entry %>
-  </div>
+</div>
 
-  <div>
-    <%= form.label :payment_method, style: "display: block" %>
-    <%= form.select :payment_method, options_for_select([["Cartão", "Cartão"], ["Pix", "Pix"], ["Dinheiro", "Dinheiro"]]) %>
-  </div>
-
-  <div>
-    <%= form.label :value, style: "display: block" %>
-    <%= form.text_field :value %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>

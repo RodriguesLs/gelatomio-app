@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    attributes:
+      operation:
+        value: Valor
+        payment_method: Método de pagamento
+        entry: Entrada
+  operations:
+    title: Operações
+    new_operation: Nova Operação
+    new: Registrar
+    back: Voltar

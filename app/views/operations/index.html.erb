@@ -1,14 +1,35 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Operations</h1>
+<h1 class='header'><%= I18n.t('operations.title') %></h1>
 
-<div id="operations">
-  <% @operations.each do |operation| %>
-    <%= render operation %>
-    <p>
-      <%= link_to "Show this operation", operation %>
-    </p>
-  <% end %>
+<div id="operations" class='body-table'>
+  <table>
+    <thead>
+      <tr>
+          <th><%= I18n.t('activerecord.attributes.operation.entry') %></th>
+          <th><%= I18n.t('activerecord.attributes.operation.payment_method') %></th>
+          <th><%= I18n.t('activerecord.attributes.operation.value') %></th>
+          <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @operations.each do |operation| %>
+        <tr>
+          <td><%= operation.entry ? 'Entrada' : 'Saída' %></td>
+          <td><%= operation.payment_method %></td>
+          <td>R$ <%= operation.value %></td>
+          <td>
+            <%= link_to "Detalhes", '#' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+    
 </div>
 
-<%= link_to "New operation", new_operation_path %>
+<div class='actions-index'>
+  <%= link_to "New operation", new_operation_path, class: 'btn' %>
+</div>
