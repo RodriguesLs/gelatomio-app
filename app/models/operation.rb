@@ -1,2 +1,3 @@
 class Operation < ApplicationRecord
+  
 end
