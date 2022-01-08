@@ -5,8 +5,11 @@ pt-BR:
         value: Valor
         payment_method: Método de pagamento
         entry: Entrada
+        description: Descrição
   operations:
     title: Operações
     new_operation: Nova Operação
+    edit_operation: Editar Operação
+    edit: Editar
     new: Registrar
     back: Voltar

@@ -26,11 +26,20 @@
 
     <div class="input-field col s6">
       <%= form.label :value %>
-      <%= form.text_field :value, pattern: '[a-Z]' %>
+      <%= form.text_field :value %>
+    </div>
+
+    <div class="input-field col s6">
+      <%= form.label :description %>
+      <%= form.text_field :description %>
     </div>
 
     <div class='actions'>
-      <%= form.submit I18n.t('operations.new'), class: 'btn btn-success' %>
+      <% if operation.value %>
+        <%= form.submit I18n.t('operations.edit'), class: 'btn btn-success' %>
+      <% else %>
+        <%= form.submit I18n.t('operations.new'), class: 'btn btn-success' %>
+      <% end %>
       <%= link_to I18n.t('operations.back'), operations_path, class: 'btn btn-danger' %>
     </div>
   <% end %>

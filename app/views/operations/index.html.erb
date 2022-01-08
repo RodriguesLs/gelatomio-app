@@ -20,7 +20,7 @@
           <td><%= operation.payment_method %></td>
           <td>R$ <%= operation.value %></td>
           <td>
-            <%= link_to "Detalhes", '#' %>
+            <%= link_to "Detalhes", operation_url(operation) %>
           </td>
         </tr>
     <% end %>
@@ -31,5 +31,5 @@
 </div>
 
 <div class='actions-index'>
-  <%= link_to "New operation", new_operation_path, class: 'btn' %>
+  <%= link_to I18n.t('operations.new_operation'), new_operation_path, class: 'btn' %>
 </div>

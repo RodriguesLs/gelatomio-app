@@ -1,17 +1,22 @@
-<div id="<%= dom_id operation %>">
+<div id="<%= dom_id operation %>" class='show-operation'>
   <p>
-    <strong>Entry:</strong>
-    <%= operation.entry %>
+    <strong> Tipo: </strong>
+    <%= operation.entry ? 'Entrada' : 'Saída' %>
   </p>
 
   <p>
-    <strong>Payment method:</strong>
+    <strong><%= I18n.t('activerecord.attributes.operation.payment_method') %>:</strong>
     <%= operation.payment_method %>
   </p>
 
   <p>
-    <strong>Value:</strong>
+    <strong><%= I18n.t('activerecord.attributes.operation.value') %>: R$ </strong>
     <%= operation.value %>
+  </p>
+
+  <p>
+    <strong>Descrição:</strong>
+    <%= operation.description %>
   </p>
 
 </div>

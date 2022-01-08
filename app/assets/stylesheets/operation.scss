@@ -20,6 +20,11 @@
     justify-content: flex-end;
 }
 
+.show {
+    justify-content: space-between;
+    width: 30%;
+}
+
 .header {
     text-align: center;
 }
@@ -29,11 +34,30 @@
     margin: 0 auto;
 }
 
+.show-operation {
+    width: 30%;
+    border: 1px solid #26a69a;
+    border-radius: 5px;
+    margin: 5em auto;
+    padding: 15px;
+}
+
 @media screen and (max-width: 600px) {
+    .body-table {
+        width: 90%;
+    }
+
     .form-new {
         width: 80%;
     }
     .header {
         font-size: 2em;
+    }
+    .show-operation {
+        width: 80%;
+    }
+
+    .show {
+        width: 80%;
     }
 }
